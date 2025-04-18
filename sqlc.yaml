@@ -1,0 +1,21 @@
+version: "2"
+sql:
+  - queries: "internal/sql/pg-queries"
+    engine: "postgresql"
+    gen:
+      go:
+        out: "internal/pg-database"
+        package: "pgdb"
+        emit_json_tags: true
+        emit_empty_slices: true
+        emit_interface: true
+
+  - schema: "internal/sql/mysql-queries"
+    engine: "mysql"
+    gen:
+      go:
+        out: "internal/mysql-database"
+        package: "mysqldb"
+        emit_json_tags: true
+        emit_empty_slices: true
+        emit_interface: true
